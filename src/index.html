@@ -2,9 +2,66 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>Pomodoro Clock</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+    <!-- Font Awesome link -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+    <!-- Custom CSS for this sheet-->
+    <link rel="stylesheet" href="pomodoro.css">
+
+    <script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+    <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+
 </head>
 <body>
+
+
+<div class="container">
+    <div id="loader">
+        <div id="top"></div>
+        <div id="bottom"></div>
+        <div id="line"></div>
+    </div>
+
+
+    <div class="container">
+        <div class="title-wrapper section">
+            <h1>Pomodoro Clock</h1>
+            <h4>Simple and lightweight JavaScript Pomodoro Timer</h4>
+        </div>
+    </div>
+
+    <div id="colorado-flag"></div>
+
+    <div class="demo-wrapper section">
+        <div class="input">
+            <label for="time-input">Select time and hit "play"</label>
+            <input name="time-input" type="text" class="time-input" value="20" autofocus/>
+        </div>
+        <div class="buttons">
+            <button class="button play  fontawesome-play"></button>
+            <button class="button pause fontawesome-pause"></button>
+            <button class="button stop  fontawesome-stop"></button>
+        </div>
+        <div class="timerMinutes">&nbsp;</div>
+        <div class="timerSeconds">&nbsp;</div>
+    </div>
+</div>
+
+
+
+</div>
+
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script type="text/javascript" src="pomodoro.js"></script>
+<script type="text/javascript" src="timer.js"></script>
+<script type="text/javascript" src="progress.js"></script>
 
 </body>
 </html>
