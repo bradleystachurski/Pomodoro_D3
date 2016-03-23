@@ -57,7 +57,7 @@ var drawProgress = function(percent){
     var radians = (angle * Math.PI / 180);
 
     innerArc.endAngle(radians);
-    innerSun.transition()
+    innerSun
         .attr('d', innerArc);
 };
 

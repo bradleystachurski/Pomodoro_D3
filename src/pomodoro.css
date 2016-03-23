@@ -89,13 +89,13 @@ iframe {
     text-align: center
 }
 
-.demo-wrapper {
+.timer-wrapper {
     text-align: center;
     background: none;
     color: #ECF0F1;
 }
 
-.demo-wrapper .time-input {
+.timer-wrapper .time-input {
     display: block;
     margin: 0 auto;
     font-size: 1.5em;
@@ -114,12 +114,12 @@ iframe {
     transition: all 700ms
 }
 
-.demo-wrapper .time-input:focus {
+.timer-wrapper .time-input:focus {
     background: rgba(255, 255, 255, 0.5);
     border: solid 1px rgba(255, 255, 255, 0.7)
 }
 
-.demo-wrapper .buttons .button {
+.timer-wrapper .buttons .button {
     width: 60px;
     height: 60px;
     background: none;
@@ -136,22 +136,27 @@ iframe {
     transition: color 400ms
 }
 
-.demo-wrapper .buttons .button:hover {
+.timer-wrapper .buttons .button:hover {
     color: #46627f;
 }
 
-.demo-wrapper .timerMinutes {
+.timer-wrapper .timerMinutes {
     font-size: 8em;
     font-family: 'Raleway', sans-serif;
     font-weight: 100;
 }
 
-.demo-wrapper .timerSeconds {
+.timer-wrapper .timerSeconds {
     font-size: 8em;
     font-family: 'Raleway', sans-serif;
     font-weight: 100;
+}
+
+.svg-wrapper {
+    display: -webkit-box;
 }
 
 #colorado-flag {
-
+    margin-left: auto;
+    margin-right: auto;
 }
