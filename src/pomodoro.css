@@ -10,21 +10,21 @@ body {
     padding: 0;
     border: none;
     outline: none;
-    background: -webkit-linear-gradient(90deg, #e74c3c 10%, #c0392b 90%); /* Chrome 10+, Saf5.1+ */
-    background:    -moz-linear-gradient(90deg, #e74c3c 10%, #c0392b 90%); /* FF3.6+ */
-    background:     -ms-linear-gradient(90deg, #e74c3c 10%, #c0392b 90%); /* IE10 */
-    background:      -o-linear-gradient(90deg, #e74c3c 10%, #c0392b 90%); /* Opera 11.10+ */
-    background:         linear-gradient(90deg, #e74c3c 10%, #c0392b 90%); /* W3C */
+    background: -webkit-linear-gradient(90deg, #3498db 10%, #2980b9 90%); /* Chrome 10+, Saf5.1+ */
+    background:    -moz-linear-gradient(90deg, #3498db 10%, #2980b9 90%); /* FF3.6+ */
+    background:     -ms-linear-gradient(90deg, #3498db 10%, #2980b9 90%); /* IE10 */
+    background:      -o-linear-gradient(90deg, #3498db 10%, #2980b9 90%); /* Opera 11.10+ */
+    background:         linear-gradient(90deg, #3498db 10%, #2980b9 90%); /* W3C */
 }
 
 .container {
     /*really like this site for UI Colors: https://flatuicolors.com/*/
     width: 100%;
-    background: -webkit-linear-gradient(90deg, #e74c3c 10%, #c0392b 90%); /* Chrome 10+, Saf5.1+ */
-    background:    -moz-linear-gradient(90deg, #e74c3c 10%, #c0392b 90%); /* FF3.6+ */
-    background:     -ms-linear-gradient(90deg, #e74c3c 10%, #c0392b 90%); /* IE10 */
-    background:      -o-linear-gradient(90deg, #e74c3c 10%, #c0392b 90%); /* Opera 11.10+ */
-    background:         linear-gradient(90deg, #e74c3c 10%, #c0392b 90%); /* W3C */
+    background: -webkit-linear-gradient(90deg, #3498db 10%, #2980b9 90%); /* Chrome 10+, Saf5.1+ */
+    background:    -moz-linear-gradient(90deg, #3498db 10%, #2980b9 90%); /* FF3.6+ */
+    background:     -ms-linear-gradient(90deg, #3498db 10%, #2980b9 90%); /* IE10 */
+    background:      -o-linear-gradient(90deg, #3498db 10%, #2980b9 90%); /* Opera 11.10+ */
+    background:         linear-gradient(90deg, #3498db 10%, #2980b9 90%); /* W3C */
 }
 
 .section {

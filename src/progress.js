@@ -10,6 +10,12 @@ var clamp = function (n, min, max) {
 //Todo: convert clock percent to radians
 //Todo: drawProgress updates .endAngle to radians
 
+//Todo: Update timer to show in tab
+//Todo: Update CSS to show stripes in Colorado Flag
+
+//Todo: Have coloradoC also countdown, but according to minutes
+//Todo:
+
 var width = 360;
 var height = 360;
 var radius = Math.min(width, height) / 2;
@@ -38,11 +44,17 @@ var innerArc = d3.svg.arc()
 
 var coloradoC = svg.append('path')
     .attr('d', arc)
-    .attr('fill', 'rgb(194, 27, 43)');
+    .attr('fill', 'rgb(192, 57, 43)');  //originally used 'rgb(194, 27, 43)'
 
 var innerSun = svg.append('path')
     .attr('d', innerArc)
-    .attr('fill', 'rgb(255, 217, 0');
+    .attr('fill', 'rgb(241, 196, 15)');   //originally used 'rgb(255, 217, 0)'
+
+/*svg.append('circle')
+ .attr('cx', 0)
+ .attr('cy', 0)
+ .attr('r', 90)
+ .attr('fill', 'rgb(243, 156, 18)');*/
 
 var drawProgress = function(percent){
 

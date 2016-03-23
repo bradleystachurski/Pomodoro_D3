@@ -1,6 +1,10 @@
 /**
  * Created by Bradley on 3/21/16.
  */
+
+//Todo: Update timer to show in tab
+//Todo: Update CSS to show stripes in Colorado Flag
+
 $(document).ready(function() {
 
     drawProgress(1);
