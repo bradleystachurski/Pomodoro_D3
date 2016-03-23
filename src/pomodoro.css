@@ -2,6 +2,10 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:300,400);
 @import url(http://fonts.googleapis.com/css?family=Raleway:100);
 
+html, body {
+    overflow-x: hidden;
+}
+
 body {
     font-family: "Open Sans", Arial, sans-serif;
     font-size: 1em;
@@ -159,4 +163,11 @@ iframe {
 #colorado-flag {
     margin-left: auto;
     margin-right: auto;
+}
+
+.whiteStripe {
+    margin: 0 -9999rem;
+    /* add back negative margin value */
+    padding: 0.25rem 9999rem;
+
 }

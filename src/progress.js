@@ -28,6 +28,16 @@ var svg = d3.select('#colorado-flag')
     .append('g')
     .attr('transform', 'translate(' + (width / 2) + ',' + (height / 2) + ')');
 
+//Create rect for white bar in flag
+svg.append('rect')
+    .attr('class', 'whiteStripe')
+    .attr('x', 0)
+    .attr('y', height / 4)
+    .attr('height', height / 2)
+    .attr('width', width * 10)
+    .attr('fill', 'white')
+    .attr('transform', 'translate(' + (-width / 2) + ',' + (-height / 2) + ')');
+
 var coloradoArc = d3.svg.arc()
     .innerRadius(radius - donutWidth)
     .outerRadius(radius)
