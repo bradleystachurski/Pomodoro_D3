@@ -6,15 +6,13 @@ var clamp = function (n, min, max) {
     return Math.max(min, Math.min(max, n));
 };
 
-//Todo: move most of code out of function
-//Todo: convert clock percent to radians
-//Todo: drawProgress updates .endAngle to radians
-
 //Todo: Update timer to show in tab
 //Todo: Update CSS to show stripes in Colorado Flag
 
-//Todo: Have coloradoC also countdown, but according to minutes
-//Todo:
+//Todo: Have coloradoC also countdown, but according to total time
+//Todo: Make sun countdown according to seconds
+//Todo: Add text in arcCenter for minutes, middle of circle for seconds
+//Todo
 
 var width = 360;
 var height = 360;
@@ -30,47 +28,68 @@ var svg = d3.select('#colorado-flag')
     .append('g')
     .attr('transform', 'translate(' + (width / 2) + ',' + (height / 2) + ')');
 
-var arc = d3.svg.arc()
+var coloradoArc = d3.svg.arc()
     .innerRadius(radius - donutWidth)
     .outerRadius(radius)
     .startAngle(.65 * Math.PI)
     .endAngle(2.35 * Math.PI);
 
-var innerArc = d3.svg.arc()
+//Create scale for coloradoArc
+var coloradoArcScale = d3.scale.linear()
+    .domain([0, 1])
+    .range([.65 * Math.PI, 2.35 * Math.PI]);
+
+var innerSunArc = d3.svg.arc()
     .innerRadius(0)
     .outerRadius(donutWidth)
     .startAngle(0)
     .endAngle(2 * Math.PI);
 
+//Create coloradoArc shaddow
+svg.append('path')
+    .attr('d', coloradoArc)
+    .attr('fill', 'rgb(192, 57, 43)');
+
+//Create innerSun shadow
+svg.append('circle')
+    .attr('cx', 0)
+    .attr('cy', 0)
+    .attr('r', 90)
+    .attr('fill', 'rgb(243, 156, 18)');
+
 var coloradoC = svg.append('path')
-    .attr('d', arc)
-    .attr('fill', 'rgb(192, 57, 43)');  //originally used 'rgb(194, 27, 43)'
+    .attr('d', coloradoArc)
+    .attr('fill', 'rgb(231, 76, 60)');  //originally used 'rgb(194, 27, 43)'
 
 var innerSun = svg.append('path')
-    .attr('d', innerArc)
+    .attr('d', innerSunArc)
     .attr('fill', 'rgb(241, 196, 15)');   //originally used 'rgb(255, 217, 0)'
 
-/*svg.append('circle')
- .attr('cx', 0)
- .attr('cy', 0)
- .attr('r', 90)
- .attr('fill', 'rgb(243, 156, 18)');*/
 
-var drawProgress = function(percent){
 
-    if(isNaN(percent)) {
+var drawProgress = function(percentTotal, percentSeconds){
+
+    if(isNaN(percentTotal)) {
         return;
     }
 
-    percent = clamp(parseFloat(percent), 0, 1);
+    if(isNaN(percentSeconds)) {
+        return;
+    }
+
+    percentTotal = clamp(parseFloat(percentTotal), 0, 1);
+    percentSeconds = clamp(parseFloat(percentSeconds), 0, 1);
 
     // 360 loops back to 0, so keep it within 0 to < 360
-    var angle = clamp(percent * 360, 0, 359.99999);
+    var angle = clamp(percentSeconds * 360, 0, 359.99999);
     var radians = (angle * Math.PI / 180);
 
-    innerArc.endAngle(radians);
+    innerSunArc.endAngle(radians);
     innerSun
-        .attr('d', innerArc);
+        .attr('d', innerSunArc);
+    coloradoArc.endAngle(coloradoArcScale(percentTotal));
+    coloradoC
+        .attr('d', coloradoArc);
 };
 
 var max = 1;

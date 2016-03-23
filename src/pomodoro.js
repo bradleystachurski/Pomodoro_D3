@@ -2,12 +2,9 @@
  * Created by Bradley on 3/21/16.
  */
 
-//Todo: Update timer to show in tab
-//Todo: Update CSS to show stripes in Colorado Flag
-
 $(document).ready(function() {
 
-    drawProgress(1);
+    drawProgress(1, 1);
 
     var $play  = $('.play'),
         $pause = $('.pause'),
@@ -26,9 +23,8 @@ $(document).ready(function() {
             $timerSeconds.text(seconds);
             $timerMinutes.text(minutes);
             clockPercent = (Math.round(milliseconds / 1000)) / initialTime;
-            console.log(clockPercent);
             playSoundBegin();
-            drawProgress(clockPercent);
+            drawProgress(clockPercent, seconds / 60);
         },
         ontick  : function(milliseconds) {
             var seconds = Math.round(milliseconds / 1000) % 60;
@@ -36,9 +32,7 @@ $(document).ready(function() {
             $timerSeconds.text(seconds);
             $timerMinutes.text(minutes);
             clockPercent = (Math.round(milliseconds / 1000)) / initialTime;
-            console.log(clockPercent);
-            //updateRadialTimer(clockPercent);
-            drawProgress(clockPercent);
+            drawProgress(clockPercent, seconds / 60);
         },
         onpause : function() {
             $timerMinutes.text('');
@@ -52,7 +46,7 @@ $(document).ready(function() {
             $timerSeconds.text('end');
             $timerMinutes.text('');
             playSoundEnd();
-            drawProgress(0);
+            drawProgress(0, 0);
         }
     });
 
