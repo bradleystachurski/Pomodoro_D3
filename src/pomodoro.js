@@ -3,6 +3,8 @@
  */
 $(document).ready(function() {
 
+    drawProgress(1);
+
     var $play  = $('.play'),
         $pause = $('.pause'),
         $stop  = $('.stop'),
@@ -21,7 +23,8 @@ $(document).ready(function() {
             $timerMinutes.text(minutes);
             clockPercent = (Math.round(milliseconds / 1000)) / initialTime;
             console.log(clockPercent);
-            playSoundBegin()
+            playSoundBegin();
+            drawProgress(clockPercent);
         },
         ontick  : function(milliseconds) {
             var seconds = Math.round(milliseconds / 1000) % 60;
@@ -45,6 +48,7 @@ $(document).ready(function() {
             $timerSeconds.text('end');
             $timerMinutes.text('');
             playSoundEnd();
+            drawProgress(0);
         }
     });
 
@@ -87,16 +91,4 @@ $(document).ready(function() {
         audio.play();
     }
 
-    function updateRadialTimer(percentageRemaing) {
-        var $ppc = $('.progress-pie-chart'),
-            percent = percentageRemaing,
-            deg = 360 * percent / 100;
-
-        if (percent > 50) {
-            $ppc.addClass('gt-50');
-        }
-
-        $('.ppc-progress-fill').css('transform', 'rotate(' + deg + 'deg)');
-        $('.ppc-percents span').html(percent + '%');
-    }
 });

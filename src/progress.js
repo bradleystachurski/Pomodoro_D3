@@ -33,18 +33,12 @@ var arc = d3.svg.arc()
 var innerArc = d3.svg.arc()
     .innerRadius(0)
     .outerRadius(donutWidth)
-    .startAngle(0 * Math.PI)
-    .endAngle(1.5 * Math.PI);
+    .startAngle(0)
+    .endAngle(2 * Math.PI);
 
 var coloradoC = svg.append('path')
     .attr('d', arc)
     .attr('fill', 'rgb(194, 27, 43)');
-
-/*svg.append('circle')
- .attr('cx', 0)
- .attr('cy', 0)
- .attr('r', 90)
- .attr('fill', 'rgb(255, 235, 102)');*/
 
 var innerSun = svg.append('path')
     .attr('d', innerArc)
@@ -63,7 +57,8 @@ var drawProgress = function(percent){
     var radians = (angle * Math.PI / 180);
 
     innerArc.endAngle(radians);
-    innerSun.attr('d', innerArc);
+    innerSun.transition()
+        .attr('d', innerArc);
 };
 
 var max = 1;
