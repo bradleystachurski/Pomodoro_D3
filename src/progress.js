@@ -7,7 +7,6 @@ var clamp = function (n, min, max) {
 };
 
 //Todo: Update timer to show in tab
-//Todo: Update CSS to show stripes in Colorado Flag
 
 //Todo: Have coloradoC also countdown, but according to total time
 //Todo: Make sun countdown according to seconds
