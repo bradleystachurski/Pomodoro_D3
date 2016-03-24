@@ -31,39 +31,6 @@ body {
     background:         linear-gradient(90deg, #3498db 10%, #2980b9 90%); /* W3C */
 }
 
-.section {
-    padding: 20px 10px;
-    color: #34495E;
-    background-color: #ECF0F1;
-}
-
-.content {
-    max-width: 680px;
-    margin: 0 auto
-}
-
-.content h3 {
-    font-weight: 300;
-    font-size: 2em;
-}
-
-a {
-    color: inherit
-}
-
-pre {
-    background: rgba(44, 62, 80, .1);
-    padding: 4px;
-    overflow: auto;
-    -moz-border-radius: 3px;
-    -webkit-border-radius: 3px;
-    border-radius: 3px
-}
-
-iframe {
-    vertical-align: middle;
-}
-
 .title-wrapper {
     background: none;
     color: #ECF0F1;
@@ -165,9 +132,12 @@ iframe {
     margin-right: auto;
 }
 
-.whiteStripe {
-    margin: 0 -9999rem;
-    /* add back negative margin value */
-    padding: 0.25rem 9999rem;
-
+#white-stripe {
+    margin-right: -3000px;
+    padding-right: 3000px;
+    margin-left: -3000px;
+    padding-left: 3000px;
+    margin-top: 90px;
+    background-color: white;
+    height: 180px;
 }
