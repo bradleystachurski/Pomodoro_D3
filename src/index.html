@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <title>Coloradoro</title>
 
-    <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+          integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
     <!-- Font Awesome link -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
@@ -19,21 +21,26 @@
 
 </head>
 <body>
-
-
-<div class="container">
-
-        <div class="title-wrapper">
-            <h1>Coloradoro Clock</h1>
-        </div>
-
+    <div class="title-wrapper">
+        <h1>Coloradoro Clock</h1>
+    </div>
 
     <div class="svg-wrapper">
         <div id="colorado-flag"></div>
         <div id="white-stripe"></div>
     </div>
+
     <div class="timer-wrapper">
-        <div class="time-remaining"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 background-gray"></div>
+                <div class="col-md-4 background-darkgray">
+                    <div class="time-remaining"></div>
+                </div>
+                <div class="col-md-1 background-lightgray center-block">Test</div>
+                <div class="col-md-3 background-gray"></div>
+            </div>
+        </div>
         <div class="input">
             <label for="time-input">Select time and hit "play"</label>
             <input name="time-input" type="text" class="time-input" value="1500" autofocus/>
@@ -44,13 +51,21 @@
             <button class="button stop  fontawesome-stop"></button>
         </div>
     </div>
-</div>
 
-<!-- Placed at the end of the document so the pages load faster -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script type="text/javascript" src="pomodoro.js"></script>
-<script type="text/javascript" src="timer.js"></script>
-<script type="text/javascript" src="progress.js"></script>
 
+    <!-- Placed at the end of the document so the pages load faster -->
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+            integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+            crossorigin="anonymous"></script>
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script type="text/javascript" src="pomodoro.js"></script>
+    <script type="text/javascript" src="timer.js"></script>
+    <script type="text/javascript" src="progress.js"></script>
 </body>
 </html>

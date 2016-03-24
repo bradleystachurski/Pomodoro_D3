@@ -21,16 +21,6 @@ body {
     background:         linear-gradient(90deg, #3498db 10%, #2980b9 90%); /* W3C */
 }
 
-.container {
-    /*really like this site for UI Colors: https://flatuicolors.com/*/
-    width: 100%;
-    background: -webkit-linear-gradient(90deg, #3498db 10%, #2980b9 90%); /* Chrome 10+, Saf5.1+ */
-    background:    -moz-linear-gradient(90deg, #3498db 10%, #2980b9 90%); /* FF3.6+ */
-    background:     -ms-linear-gradient(90deg, #3498db 10%, #2980b9 90%); /* IE10 */
-    background:      -o-linear-gradient(90deg, #3498db 10%, #2980b9 90%); /* Opera 11.10+ */
-    background:         linear-gradient(90deg, #3498db 10%, #2980b9 90%); /* W3C */
-}
-
 .title-wrapper {
     background: none;
     color: #ECF0F1;
@@ -146,4 +136,20 @@ body {
     margin-top: 90px;
     background-color: white;
     height: 180px;
+}
+
+.background-gray {
+    background-color: gray;
+    height: 50%;
+}
+
+.background-lightgray {
+    background-color: lightgray;
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
+
+.background-darkgray {
+    background-color: darkgray;
 }
