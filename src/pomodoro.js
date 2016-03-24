@@ -16,6 +16,8 @@ $(document).ready(function() {
     var initialTime,
         clockPercent;
 
+    var secondFormat = d3.time.format('%S');
+
     var timer = new Timer({
         onstart : function(milliseconds) {
             var seconds = Math.round(milliseconds / 1000) % 60;
@@ -25,6 +27,10 @@ $(document).ready(function() {
             clockPercent = (Math.round(milliseconds / 1000)) / initialTime;
             playSoundBegin();
             drawProgress(clockPercent, seconds / 60);
+            if (seconds < 10) {
+                seconds = '0' + seconds;
+            }
+            document.title = 'Coloradoro ' + '(' + minutes + ':' + seconds + ')';
         },
         ontick  : function(milliseconds) {
             var seconds = Math.round(milliseconds / 1000) % 60;
@@ -33,6 +39,10 @@ $(document).ready(function() {
             $timerMinutes.text(minutes);
             clockPercent = (Math.round(milliseconds / 1000)) / initialTime;
             drawProgress(clockPercent, seconds / 60);
+            if (seconds < 10) {
+                seconds = '0' + seconds;
+            }
+            document.title = 'Coloradoro ' + '(' + minutes + ':' + seconds + ')';
         },
         onpause : function() {
             $timerMinutes.text('');
@@ -47,6 +57,7 @@ $(document).ready(function() {
             $timerMinutes.text('');
             playSoundEnd();
             drawProgress(0, 0);
+            document.title = 'Coloradoro (end)'
         }
     });
 

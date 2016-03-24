@@ -7,11 +7,10 @@ var clamp = function (n, min, max) {
 };
 
 //Todo: Update timer to show in tab
-
-//Todo: Have coloradoC also countdown, but according to total time
-//Todo: Make sun countdown according to seconds
+//Todo: Minutes:Seconds format D3
+//Todo: Update input for minutes/seconds
 //Todo: Add text in arcCenter for minutes, middle of circle for seconds
-//Todo
+//Todo: format size to be responsive to fit full screen and no more
 
 var width = 360;
 var height = 360;
