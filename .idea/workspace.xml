@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="83773894-8645-46a4-90f1-20ba708c47e1" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/index.html" afterPath="$PROJECT_DIR$/src/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pomodoro.css" afterPath="$PROJECT_DIR$/src/pomodoro.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pomodoro.js" afterPath="$PROJECT_DIR$/src/pomodoro.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/progress.js" afterPath="$PROJECT_DIR$/src/progress.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
@@ -28,21 +29,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.5">
-              <caret line="4" column="21" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="21" />
+            <state vertical-scroll-proportion="0.607438">
+              <caret line="35" column="42" selection-start-line="35" selection-start-column="42" selection-end-line="35" selection-end-column="42" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pomodoro.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="pomodoro.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pomodoro.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.74">
-              <caret line="59" column="46" selection-start-line="59" selection-start-column="46" selection-end-line="59" selection-end-column="46" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -62,7 +63,7 @@
         <entry file="file://$PROJECT_DIR$/src/progress.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="9" column="33" selection-start-line="9" selection-start-column="33" selection-end-line="9" selection-end-column="33" />
+              <caret line="8" column="40" selection-start-line="8" selection-start-column="40" selection-end-line="8" selection-end-column="40" />
               <folding />
             </state>
           </provider>
@@ -72,7 +73,7 @@
         <entry file="file://$PROJECT_DIR$/src/pomodoro.css">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="127" column="0" selection-start-line="127" selection-start-column="0" selection-end-line="127" selection-end-column="0" />
+              <caret line="127" column="17" selection-start-line="127" selection-start-column="17" selection-end-line="127" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -105,10 +106,10 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/timer.js" />
-        <option value="$PROJECT_DIR$/src/pomodoro.css" />
         <option value="$PROJECT_DIR$/src/progress.js" />
-        <option value="$PROJECT_DIR$/src/index.html" />
         <option value="$PROJECT_DIR$/src/pomodoro.js" />
+        <option value="$PROJECT_DIR$/src/index.html" />
+        <option value="$PROJECT_DIR$/src/pomodoro.css" />
       </list>
     </option>
   </component>
@@ -500,7 +501,7 @@
       <updated>1458612394244</updated>
       <workItem from="1458612399096" duration="7816000" />
       <workItem from="1458708471727" duration="5510000" />
-      <workItem from="1458774247803" duration="11137000" />
+      <workItem from="1458774247803" duration="12465000" />
     </task>
     <task id="LOCAL-00001" summary="Centered SVG Element and cleaned up CSS">
       <created>1458709041827</created>
@@ -514,11 +515,17 @@
       <option name="project" value="LOCAL" />
       <updated>1458792319946</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Tab Title includes countdown timer">
+      <created>1458845683166</created>
+      <option name="number" value="00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1458845683166</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24463000" />
+    <option name="totallyTimeSpent" value="25791000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="873" extended-state="6" />
@@ -564,7 +571,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Centered SVG Element and cleaned up CSS" />
     <MESSAGE value="Changed title to Coloradoro" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed title to Coloradoro" />
+    <MESSAGE value="Tab Title includes countdown timer" />
+    <option name="LAST_COMMIT_MESSAGE" value="Tab Title includes countdown timer" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -655,22 +663,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pomodoro.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="127" column="0" selection-start-line="127" selection-start-column="0" selection-end-line="127" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/progress.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="9" column="33" selection-start-line="9" selection-start-column="33" selection-end-line="9" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/timer.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -679,18 +671,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/index.html">
+    <entry file="file://$PROJECT_DIR$/src/progress.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.5">
-          <caret line="4" column="21" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="21" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="8" column="40" selection-start-line="8" selection-start-column="40" selection-end-line="8" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pomodoro.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="127" column="17" selection-start-line="127" selection-start-column="17" selection-end-line="127" selection-end-column="17" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pomodoro.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.74">
-          <caret line="59" column="46" selection-start-line="59" selection-start-column="46" selection-end-line="59" selection-end-column="46" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.607438">
+          <caret line="35" column="42" selection-start-line="35" selection-start-column="42" selection-end-line="35" selection-end-column="42" />
           <folding />
         </state>
       </provider>

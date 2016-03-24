@@ -10,13 +10,19 @@ $(document).ready(function() {
         $pause = $('.pause'),
         $stop  = $('.stop'),
         $time  = $('.time-input'),
-        $timerSeconds = $('.timerSeconds');
-    $timerMinutes = $('.timerMinutes');
+        $timerSeconds = $('.timerSeconds'),
+        $timerMinutes = $('.timerMinutes'),
+        $timeRemaining = $('.time-remaining');
 
     var initialTime,
         clockPercent;
 
     var secondFormat = d3.time.format('%S');
+
+    $timeRemaining.text('25:00');
+
+    $timerMinutes.text(25);
+    $timerSeconds.text('00');
 
     var timer = new Timer({
         onstart : function(milliseconds) {
@@ -31,6 +37,7 @@ $(document).ready(function() {
                 seconds = '0' + seconds;
             }
             document.title = 'Coloradoro ' + '(' + minutes + ':' + seconds + ')';
+            $timeRemaining.text(minutes + ':' + seconds)
         },
         ontick  : function(milliseconds) {
             var seconds = Math.round(milliseconds / 1000) % 60;
@@ -43,6 +50,7 @@ $(document).ready(function() {
                 seconds = '0' + seconds;
             }
             document.title = 'Coloradoro ' + '(' + minutes + ':' + seconds + ')';
+            $timeRemaining.text(minutes + ':' + seconds)
         },
         onpause : function() {
             $timerMinutes.text('');

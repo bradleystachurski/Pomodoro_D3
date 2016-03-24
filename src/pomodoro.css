@@ -123,6 +123,12 @@ body {
     font-weight: 100;
 }
 
+.timer-wrapper .time-remaining {
+    font-size: 8em;
+    font-family: sans-serif;
+    font-weight: 100;
+}
+
 .svg-wrapper {
     display: -webkit-box;
 }
