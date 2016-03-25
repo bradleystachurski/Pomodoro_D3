@@ -10,6 +10,8 @@ $(document).ready(function() {
         $pause = $('.pause'),
         $stop  = $('.stop'),
         $time  = $('.time-input'),
+        $minus = $('.minus'),
+        $plus = $('.plus'),
         $timerSeconds = $('.timerSeconds'),
         $timerMinutes = $('.timerMinutes'),
         $timeRemaining = $('.time-remaining');
@@ -19,7 +21,9 @@ $(document).ready(function() {
 
     var secondFormat = d3.time.format('%S');
 
-    $timeRemaining.text('25:00');
+    var minutes = 25;
+
+    $timeRemaining.text(minutes + ':00');
 
     $timerMinutes.text(25);
     $timerSeconds.text('00');
@@ -70,8 +74,8 @@ $(document).ready(function() {
     });
 
     $play.on('click', function() {
-        var time = $time.val();
-        initialTime = $time.val();
+        var time = minutes * 60;
+        initialTime = time;
         if (!time) return;
         if (isNaN(time)) {
             alert('Please input valid number');
@@ -91,6 +95,18 @@ $(document).ready(function() {
         if (/started|paused/.test(timer.getStatus())) {
             timer.stop();
         }
+    });
+
+    $minus.on('click', function() {
+        if (minutes > 0) {
+            minutes -= 1;
+            $timeRemaining.text(minutes + ':00');
+        }
+    });
+
+    $plus.on('click', function() {
+        minutes += 1;
+        $timeRemaining.text(minutes + ':00');
     });
 
     function playSoundEnd() {
