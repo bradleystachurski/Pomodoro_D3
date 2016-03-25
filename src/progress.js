@@ -6,8 +6,6 @@ var clamp = function (n, min, max) {
     return Math.max(min, Math.min(max, n));
 };
 
-//Todo: Add text in arcCenter for minutes, middle of circle for seconds
-//Todo: format size to be responsive to fit full screen and no more
 
 var width = 360;
 var height = 360;

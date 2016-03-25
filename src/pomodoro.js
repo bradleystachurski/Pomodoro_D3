@@ -12,6 +12,7 @@ $(document).ready(function() {
         $time  = $('.time-input'),
         $minus = $('.minus'),
         $plus = $('.plus'),
+        $refresh = $('.refresh'),
         $timerSeconds = $('.timerSeconds'),
         $timerMinutes = $('.timerMinutes'),
         $timeRemaining = $('.time-remaining');
@@ -19,7 +20,7 @@ $(document).ready(function() {
     var initialTime,
         clockPercent;
 
-    var secondFormat = d3.time.format('%S');
+    var timerStarted = false;
 
     var minutes = 25;
 
@@ -30,6 +31,7 @@ $(document).ready(function() {
 
     var timer = new Timer({
         onstart : function(milliseconds) {
+            timerStarted = true;
             var seconds = Math.round(milliseconds / 1000) % 60;
             var minutes = Math.floor(Math.round(milliseconds / 1000) / 60);
             $timerSeconds.text(seconds);
@@ -40,7 +42,7 @@ $(document).ready(function() {
             if (seconds < 10) {
                 seconds = '0' + seconds;
             }
-            document.title = 'Coloradoro ' + '(' + minutes + ':' + seconds + ')';
+            document.title = '(' + minutes + ':' + seconds + ') ' + 'Coloradoro';
             $timeRemaining.text(minutes + ':' + seconds)
         },
         ontick  : function(milliseconds) {
@@ -53,7 +55,7 @@ $(document).ready(function() {
             if (seconds < 10) {
                 seconds = '0' + seconds;
             }
-            document.title = 'Coloradoro ' + '(' + minutes + ':' + seconds + ')';
+            document.title = '(' + minutes + ':' + seconds + ') ' + 'Coloradoro';
             $timeRemaining.text(minutes + ':' + seconds)
         },
         onpause : function() {
@@ -61,10 +63,12 @@ $(document).ready(function() {
             $timerSeconds.text('pause');
         },
         onstop  : function() {
+            timerStarted = false;
             $timerMinutes.text('&nbsp');
             $timerSeconds.text('stop');
         },
         onend   : function() {
+            timerStarted = false;
             $timerSeconds.text('end');
             $timerMinutes.text('');
             playSoundEnd();
@@ -98,15 +102,24 @@ $(document).ready(function() {
     });
 
     $minus.on('click', function() {
-        if (minutes > 0) {
+        if (!timerStarted && minutes > 0) {
             minutes -= 1;
             $timeRemaining.text(minutes + ':00');
         }
     });
 
     $plus.on('click', function() {
-        minutes += 1;
-        $timeRemaining.text(minutes + ':00');
+        if(!timerStarted) {
+            minutes += 1;
+            $timeRemaining.text(minutes + ':00');
+        }
+    });
+
+    $refresh.on('click', function() {
+        if(!timerStarted) {
+            minutes = 25;
+            $timeRemaining.text(minutes + ':00');
+        }
     });
 
     function playSoundEnd() {
