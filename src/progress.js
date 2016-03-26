@@ -6,6 +6,7 @@ var clamp = function (n, min, max) {
     return Math.max(min, Math.min(max, n));
 };
 
+//Todo: Center text for timer when screen is half width
 
 var width = 360;
 var height = 360;
