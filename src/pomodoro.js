@@ -73,6 +73,7 @@ $(document).ready(function() {
             $timerMinutes.text('');
             playSoundEnd();
             drawProgress(0, 0);
+            $timeRemaining.text('end');
             document.title = 'Coloradoro (end)'
         }
     });
