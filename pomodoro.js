@@ -154,9 +154,11 @@ $(document).ready(function() {
     }
 
     function displayMessages() {
-        while (queuedMessages.length > 0) {
-            alert(queuedMessages.pop());
-        }
+        setTimeout(function () {
+            while (queuedMessages.length > 0) {
+                alert(queuedMessages.pop());
+            }
+        }, 500);
     }
 
     /**
