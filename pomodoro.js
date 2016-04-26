@@ -226,6 +226,4 @@ $(document).ready(function() {
             }
         }
     }, 1000);
-
-    friends.updateStatus(friends.statuses.AVAILABLE);
 });

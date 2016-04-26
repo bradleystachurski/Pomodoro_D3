@@ -20,6 +20,8 @@
         AWAY: 'away'
     };
 
+    var currentStatus = statuses.AVAILABLE;
+
     var messageHandler = function () {};
     var statusHandler = function () {};
 
@@ -32,7 +34,8 @@
     }
 
     function updateStatus(status, duration) {
-        socket.emit('user status', { username: username, status: status, duration: duration });
+        currentStatus = status;
+        socket.emit('user status', { username: username, status: currentStatus, duration: duration });
     }
 
     function sendMessage(message) {
@@ -45,6 +48,14 @@
 
     socket.on('user status', function (statusPayload) {
         statusHandler(statusPayload);
+    });
+
+    socket.on('connect', function () {
+        updateStatus(currentStatus);
+    });
+
+    socket.on('reconnect', function () {
+        updateStatus(currentStatus);
     });
 
     return {
