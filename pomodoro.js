@@ -14,10 +14,13 @@ $(document).ready(function() {
         $timerSeconds = $('.timerSeconds'),
         $timerMinutes = $('.timerMinutes'),
         $timeRemaining = $('.time-remaining'),
+        $externalUI = $('.title-wrapper, .timer-wrapper, .friends-wrapper'),
         $sendMessage = $('.friend-chat-button');
 
     var friendsList,
         queuedMessages = [];
+
+    var uiHidden = false;
 
     var initialTime,
         clockPercent;
@@ -47,6 +50,7 @@ $(document).ready(function() {
             document.title = '(' + minutes + ':' + seconds + ') ' + 'Coloradoro';
             $timeRemaining.text(minutes + ':' + seconds);
             friends.updateStatus(friends.statuses.BUSY, milliseconds / 1000);
+            hideUI();
         },
         ontick  : function(milliseconds) {
             var seconds = Math.round(milliseconds / 1000) % 60;
@@ -71,6 +75,7 @@ $(document).ready(function() {
             $timerSeconds.text('stop');
             friends.updateStatus(friends.statuses.AVAILABLE);
             displayMessages();
+            showUI();
         },
         onend   : function() {
             timerStarted = false;
@@ -82,6 +87,7 @@ $(document).ready(function() {
             document.title = 'Coloradoro (end)';
             friends.updateStatus(friends.statuses.AVAILABLE);
             displayMessages();
+            showUI();
         }
     });
 
@@ -137,6 +143,14 @@ $(document).ready(function() {
         }
     });
 
+    var hideTimeout;
+    $externalUI.on('mousemove', function() {
+        if (timerStarted) {
+            showUI();
+            hideTimeout = setTimeout(hideUI, 3000);
+        }
+    });
+
     function playSoundEnd() {
         //var mySound = 'http://www.presentationmagazine.com/sound/bell_ting_ting.mp3';
         //http://onlineclock.net/audio/options/harp-strumming.mp3
@@ -160,6 +174,19 @@ $(document).ready(function() {
         }, 500);
     }
 
+    function hideUI() {
+        $externalUI.animate({opacity: 0});
+        uiHidden = true;
+    }
+
+    function showUI() {
+        clearTimeout(hideTimeout);
+        if (uiHidden) {
+            $externalUI.animate({opacity: 1});
+            uiHidden = false;
+        }
+    }
+
     /**
      * Display incoming chat messages only when available
      */
@@ -178,7 +205,7 @@ $(document).ready(function() {
         friendsList = statusPayload;
         for (var username in statusPayload) {
             if (!statusPayload.hasOwnProperty(username)) continue;
-            
+
             var status = statusPayload[username].status;
             var duration = statusPayload[username].duration;
             var updatedAt = moment(statusPayload[username].updatedAt);
@@ -215,7 +242,7 @@ $(document).ready(function() {
     setInterval(function () {
         for (var username in friendsList) {
             if (!friendsList.hasOwnProperty(username)) continue;
-            
+
             var status = friendsList[username].status;
             var duration = friendsList[username].duration;
 
