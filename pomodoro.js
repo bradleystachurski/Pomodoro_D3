@@ -8,13 +8,12 @@ $(document).ready(function() {
     var $play  = $('.play'),
         $pause = $('.pause'),
         $stop  = $('.stop'),
-        $time  = $('.time-input'),
         $minus = $('.minus'),
         $plus = $('.plus'),
         $refresh = $('.refresh'),
         $timerSeconds = $('.timerSeconds'),
         $timerMinutes = $('.timerMinutes'),
-        $timeRemaining = $('.time-remaining');
+        $timeRemaining = $('.time-remaining'),
         $sendMessage = $('.friend-chat-button');
 
     var friendsList,
@@ -46,7 +45,7 @@ $(document).ready(function() {
                 seconds = '0' + seconds;
             }
             document.title = '(' + minutes + ':' + seconds + ') ' + 'Coloradoro';
-            $timeRemaining.text(minutes + ':' + seconds)
+            $timeRemaining.text(minutes + ':' + seconds);
             friends.updateStatus(friends.statuses.BUSY, milliseconds / 1000);
         },
         ontick  : function(milliseconds) {
@@ -60,7 +59,7 @@ $(document).ready(function() {
                 seconds = '0' + seconds;
             }
             document.title = '(' + minutes + ':' + seconds + ') ' + 'Coloradoro';
-            $timeRemaining.text(minutes + ':' + seconds)
+            $timeRemaining.text(minutes + ':' + seconds);
         },
         onpause : function() {
             $timerMinutes.text('');
@@ -80,7 +79,7 @@ $(document).ready(function() {
             playSoundEnd();
             drawProgress(0, 0);
             $timeRemaining.text('end');
-            document.title = 'Coloradoro (end)'
+            document.title = 'Coloradoro (end)';
             friends.updateStatus(friends.statuses.AVAILABLE);
             displayMessages();
         }
@@ -177,7 +176,9 @@ $(document).ready(function() {
      */
     friends.onStatus(function (statusPayload) {
         friendsList = statusPayload;
-        for (username in statusPayload) {
+        for (var username in statusPayload) {
+            if (!statusPayload.hasOwnProperty(username)) continue;
+            
             var status = statusPayload[username].status;
             var duration = statusPayload[username].duration;
             var updatedAt = moment(statusPayload[username].updatedAt);
@@ -195,7 +196,7 @@ $(document).ready(function() {
                 + '<td>' + username + '</td>'
                 + '<td class="friend-status ' + status + '">' + statusMessage + '</td>'
                 + '<td class="friend-timestamp">' + lastSeen + '<td>'
-                + '</tr>'
+                + '</tr>';
                 $('.friends-list').append(friendTemplate);
             } else {
                 $friend.find('.friend-status')
@@ -212,14 +213,16 @@ $(document).ready(function() {
      * Update the duration of any friends who are currently busy
      */
     setInterval(function () {
-        for (username in friendsList) {
+        for (var username in friendsList) {
+            if (!friendsList.hasOwnProperty(username)) continue;
+            
             var status = friendsList[username].status;
             var duration = friendsList[username].duration;
 
             if (status === friends.statuses.BUSY && duration) {
                 var updatedAt = moment(friendsList[username].updatedAt);
                 var availableAt = updatedAt.add(duration, 'seconds');
-                statusMessage = 'available ' + availableAt.fromNow();
+                var statusMessage = 'available ' + availableAt.fromNow();
 
                 $('#' + username).find('.friend-status')
                                  .html(statusMessage);
