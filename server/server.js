@@ -43,7 +43,7 @@ io.on('connection', function (socket) {
   socket.on('disconnect', function () {
     console.log('user disconnected');
 
-    if (!username) { return; }
+    if (!socket.username) { return; }
 
     var user = users[socket.username] || {};
     user.status = 'away';
