@@ -35,6 +35,8 @@ io.on('connection', function (socket) {
 
     socket.username = username;
 
+    pruneInactiveUsers();
+
     io.emit('user status', users);
   });
 
@@ -51,3 +53,16 @@ io.on('connection', function (socket) {
     io.emit('user status', users);
   });
 });
+
+/**
+ * Remove Users from the User list that have not been online for over a week
+ */
+function pruneInactiveUsers() {
+  var aWeekAgo = new Date().getTime() - (7*24*60*60*1000);
+  for (var username in users) {
+    lastSeenTimestamp = new Date(users[username].updatedAt);
+    if (lastSeenTimestamp < aWeekAgo) {
+      delete users[username];
+    }
+  }
+}
