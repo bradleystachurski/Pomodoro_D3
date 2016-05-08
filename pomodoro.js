@@ -188,6 +188,14 @@ $(document).ready(function() {
     }
 
     /**
+     * Replace 'some username' with 'some-username' for DOM ids
+     * Ghetto insecure stopgap until we have actual user accounts with ids
+     */
+    function getUserId(username) {
+        return username.replace(/\s+/g, '-');
+    }
+
+    /**
      * Display incoming chat messages only when available
      */
     friends.onMessage(function (message) {
@@ -217,9 +225,9 @@ $(document).ready(function() {
                 statusMessage = 'available ' + availableAt.fromNow();
             }
 
-            var $friend = $('#' + username);
+            var $friend = $('#' + getUserId(username));
             if ($friend.length === 0) {
-                var friendTemplate = '<tr id="' + username + '" class="friend">'
+                var friendTemplate = '<tr id="' + getUserId(username) + '" class="friend">'
                 + '<td>' + username + '</td>'
                 + '<td class="friend-status ' + status + '">' + statusMessage + '</td>'
                 + '<td class="friend-timestamp">' + lastSeen + '<td>'
@@ -251,7 +259,7 @@ $(document).ready(function() {
                 var availableAt = updatedAt.add(duration, 'seconds');
                 var statusMessage = 'available ' + availableAt.fromNow();
 
-                $('#' + username).find('.friend-status')
+                $('#' + getUserId(username)).find('.friend-status')
                                  .html(statusMessage);
             }
         }
